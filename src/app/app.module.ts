@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
+import { AuthInterceptorService } from './authInterceptor.service';
 
 import { AppComponent } from './app.component';
 import { MessageComponent } from './messages/message.component';
@@ -37,10 +39,14 @@ const routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ApiService, AuthService],
+  providers: [ApiService, AuthService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

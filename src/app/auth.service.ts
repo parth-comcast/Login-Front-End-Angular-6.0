@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -7,7 +7,13 @@ export class AuthService {
     messages = [];
     path = 'http://localhost:3000/auth';
 
-    constructor( private http: Http ) {}
+    TOKEN_KEY = 'token';
+
+    constructor( private http: HttpClient ) {}
+
+    get token() {
+        return localStorage.getItem(this.TOKEN_KEY);
+    }
 
     registerUser(registerData) {
         this.http.post(this.path + '/register', registerData).subscribe(res => {
@@ -15,8 +21,8 @@ export class AuthService {
     }
 
     loginUser(loginData) {
-        this.http.post(this.path + '/login', loginData).subscribe(res => {
-            localStorage.setItem('token', res.json().token);
+        this.http.post<any>(this.path + '/login', loginData).subscribe(res => {
+            localStorage.setItem(this.TOKEN_KEY, res.token);
             console.log(res);
         });
     }

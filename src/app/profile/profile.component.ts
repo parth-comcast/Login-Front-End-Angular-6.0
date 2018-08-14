@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit, OnDestroy{
     }));
 
     this.subscription.push(this.apiServices.getProfile(this.userId).subscribe(data => {
-      this.profile = data.json();
+      this.profile = data;
     }));
   }
 

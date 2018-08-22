@@ -1,4 +1,6 @@
-<h2>Posts</h2>
-<div class="list-group" *ngFor="let message of apiServices.messages">
-    <div class="alert alert-primary" role="alert">{{ message.msg }}</div>
-</div>
+<mat-card>
+    <mat-card-title>Your Posts</mat-card-title>
+    <mat-list *ngFor="let message of apiServices.messages">
+        <mat-list-item> {{ message.msg }} </mat-list-item>
+    </mat-list>
+</mat-card>

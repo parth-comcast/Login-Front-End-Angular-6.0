@@ -15,5 +15,6 @@ export class RegisterComponent {
 
     post() {
         this.authServices.registerUser(this.registerData);
+        this.registerData = {};
     }
 }

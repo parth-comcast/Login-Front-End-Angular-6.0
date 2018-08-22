@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule } from '@angular/material';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -20,9 +23,9 @@ import { ProfileComponent } from './profile/profile.component';
 const routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'message', component: MessageComponent},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'users', component: UserComponent},
-  {path: '', component: PostComponent},
+  {path: 'post', component: PostComponent},
   {path: 'profile/:id', component: ProfileComponent}
 ];
 
@@ -40,6 +43,13 @@ const routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatListModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ApiService, AuthService, {

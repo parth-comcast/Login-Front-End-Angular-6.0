@@ -1,6 +1,8 @@
-<form>
-    <div class="input-group mb-2">
-        <textarea [(ngModel)]="postMsg" name="description" class="form-control" id="exampleFormControlTextarea1" placeholder="Post Message" rows="3"></textarea>
-    </div>
-    <button class="btn btn-primary" (click)="post()" type="submit">Post Message</button>
-</form>
+<mat-card>
+    <mat-card-title>Post</mat-card-title>
+    <mat-form-field style="width: 50%">
+        <textarea matInput [(ngModel)]="postMsg" name="description" placeholder="Please Post Message"></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-flat-button (click)="post()" type="submit">Post Message</button>
+</mat-card>

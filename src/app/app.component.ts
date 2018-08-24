@@ -7,6 +7,9 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'my-app';
+  public authServ;
 
-  constructor(private authServ: AuthService) {}
+  constructor(authServ: AuthService) {
+    this.authServ = authServ;
+  }
 }

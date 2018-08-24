@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
 })
 export class UserComponent implements OnInit {
 
-    constructor( private apiServices: ApiService) {}
+    constructor(public apiServices: ApiService) {}
 
     ngOnInit() {
         this.apiServices.getUsers();

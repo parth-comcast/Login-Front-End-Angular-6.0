@@ -7,9 +7,12 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-    loginData = {};
+    loginData = {
+      'email': '',
+      'password': ''
+    };
 
-  constructor( private authServices: AuthService) {}
+  constructor(public authServices: AuthService) {}
 
     post() {
         this.authServices.loginUser(this.loginData);

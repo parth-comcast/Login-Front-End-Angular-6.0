@@ -9,12 +9,24 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
 
-    registerData = {};
+    registerData = {
+        'name': '',
+        'email': '',
+        'description': '',
+        'password': ''
+    };
 
-    constructor( private authServices: AuthService) {}
+    constructor(public authServices: AuthService) {
+        this.authServices = authServices;
+    }
 
     post() {
         this.authServices.registerUser(this.registerData);
-        this.registerData = {};
+        this.registerData = {
+            'name': '',
+            'email': '',
+            'description': '',
+            'password': ''
+        };
     }
 }

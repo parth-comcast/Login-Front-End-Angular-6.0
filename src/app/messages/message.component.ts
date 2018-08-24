@@ -13,7 +13,7 @@ export class MessageComponent implements OnInit{
   private userId;
   private subscription: Subscription[] = [];
 
-  constructor( private apiServices: ApiService, private route: ActivatedRoute) {}
+  constructor(public apiServices: ApiService, public route: ActivatedRoute) {}
 
   ngOnInit() {
     this.subscription.push(this.route.params.subscribe(params => {

@@ -9,7 +9,7 @@ export class PostComponent {
 
   postMsg = '';
 
-  constructor( private apiServices: ApiService) {}
+  constructor(private apiServices: ApiService) {}
 
   post() {
     this.apiServices.postMessage({msg: this.postMsg});

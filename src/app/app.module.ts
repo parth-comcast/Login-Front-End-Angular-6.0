@@ -23,7 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 const routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'message', component: MessageComponent},
-  {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'users', component: UserComponent},
   {path: 'post', component: PostComponent},
   {path: 'profile/:id', component: ProfileComponent}

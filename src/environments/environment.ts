@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  path: 'https://parth-social.herokuapp.com'
+  path: 'http://localhost:3000'
 };
 
 /*
